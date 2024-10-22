@@ -1,0 +1,20 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr); /* 10개의 동일한 비율 칸 */
+    /* 칸 사이의 간격 */
+    padding: 10px;
+  }
+  
+  .grid-item {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 20px
+  }
+
+  .grid-item img {
+    width: 100%;   /* 그리드 칸 너비에 맞춤 */
+    height: auto;  /* 높이는 자동 조정 */
+    max-width: 150px; /* 최대 너비 제한 */
+  }
+  
