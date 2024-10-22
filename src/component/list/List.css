@@ -1,0 +1,37 @@
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 300px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 10px;
+  text-align: left;
+}
+
+.location {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.distance,
+.dates,
+.price,
+.rating {
+  margin: 5px 0;
+}
