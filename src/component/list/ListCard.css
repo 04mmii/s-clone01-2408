@@ -77,6 +77,30 @@
   cursor: not-allowed;
 }
 
+/* 점 컨테이너 스타일 */
+.dots-container {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: opacity 0.3s, background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #ffffff;
+  opacity: 1;
+}
+
 .card-content {
   width: 300px;
   height: 150px;

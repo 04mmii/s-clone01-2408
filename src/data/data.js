@@ -1,5 +1,6 @@
-export const data = [
+const accommodations = [
   {
+    id: 1,
     images: [
       "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq",
       "https://a0.muscache.com/im/pictures/5f2887ae-02e5-48d0-9b69-97d0404dc31b.jpg?im_w=720",
@@ -14,6 +15,7 @@ export const data = [
     rating: "4.88",
   },
   {
+    id: 2,
     images: [
       "https://via.placeholder.com/300?text=Image+1",
       "https://via.placeholder.com/300?text=Image+2",
@@ -25,6 +27,7 @@ export const data = [
     rating: "4.97",
   },
   {
+    id: 3,
     images: [
       "https://via.placeholder.com/300?text=Image+1",
       "https://via.placeholder.com/300?text=Image+2",
@@ -36,6 +39,7 @@ export const data = [
     rating: "4.7",
   },
   {
+    id: 4,
     images: [
       "https://via.placeholder.com/300?text=Image+1",
       "https://via.placeholder.com/300?text=Image+2",
@@ -47,6 +51,7 @@ export const data = [
     rating: "4.5",
   },
   {
+    id: 5,
     images: [
       "https://via.placeholder.com/300?text=Image+1",
       "https://via.placeholder.com/300?text=Image+2",
@@ -58,3 +63,5 @@ export const data = [
     rating: "5.0",
   },
 ];
+
+export default accommodations;
