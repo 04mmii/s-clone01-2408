@@ -13,7 +13,7 @@ const ListCard = ({ id, images, location, distance, dates, price, rating }) => {
 
   const handleClick = () => {
     console.log(id); // 클릭 시 콘솔에 ID 출력
-    navigate(`/accommodation/${id}`);
+    navigate(`/detail/${id}`);
   };
 
   //왼쪽으로 이동 (최소0까지 제한)
