@@ -1,4 +1,4 @@
-# airbnb 클론코딩 : 2408- FE 김민아
+# airbnb 클론코딩 : 2408- FE 
 
 - Tech used React HTML CSS JavaScript
 - Type Clone Coding
