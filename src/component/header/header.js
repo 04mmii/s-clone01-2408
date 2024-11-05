@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./Header.css";
+import "./header.css";
 import { FaUserCircle, FaSearch, FaGlobe } from "react-icons/fa";
 
 const Header = () => {
@@ -119,7 +119,7 @@ const Header = () => {
               </div>
               <div className="header__searchItem">
                 <span>날짜</span>
-                <input type="text" placeholder="날짜 추가" />
+                <input type="date" placeholder="날짜 추가" />
               </div>
               <div className="header__searchItem">
                 <span>게스트</span>
