@@ -1,0 +1,138 @@
+.card {
+  /* border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  position: relative;
+  box-sizing: border-box;
+}
+
+.image-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 하트 버튼 스타일 */
+.like-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.like-button:hover {
+  transform: scale(1.2); /* 호버 시 살짝 확대 */
+}
+
+/* 네비게이션 버튼 스타일 */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.692);
+  color: rgb(36, 36, 36);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 1;
+  display: none;
+}
+
+.nav-button.hidden {
+  display: none !important; /* 숨김 처리 */
+}
+
+.image-container:hover .nav-button {
+  display: block; /* 마우스 호버 시 버튼 표시 */
+}
+
+.nav-button.left {
+  left: 10px;
+}
+
+.nav-button.right {
+  right: 10px;
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 점 컨테이너 스타일 */
+.dots-container {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: opacity 0.3s, background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #ffffff;
+  opacity: 1;
+}
+
+.card-content {
+  width: 300px;
+  height: 150px;
+  padding: 2px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.location {
+  font-weight: bold;
+  margin-bottom: 5px;
+  width: 70%;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rating {
+  width: 30%;
+  text-align: right;
+}
+
+.rating-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.distance,
+.dates,
+.price,
+.rating {
+  margin: 5px 0;
+}
