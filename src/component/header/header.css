@@ -1,0 +1,148 @@
+/* Header.css */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header__logo img {
+  height: 40px;
+}
+
+.header__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__nav {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.header__nav a {
+  margin: 0 15px;
+  color: #222;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header__nav a.active {
+  border-bottom: 2px solid #ff385c;
+  color: #ff385c;
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 8px 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.header__searchItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 12px;
+  position: relative;
+}
+
+.header__searchItem span {
+  font-size: 12px;
+  color: #888;
+}
+
+.header__searchItem input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.header__searchButton {
+  background-color: #ff385c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.locationPopup {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: white;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  width: 400px;
+  z-index: 10;
+}
+
+.locationPopup h4 {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.locationPopup__regions,
+.locationPopup__cities,
+.locationPopup__world {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.locationPopup__regions button,
+.locationPopup__cities button,
+.locationPopup__world button {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.locationPopup__regions button:hover,
+.locationPopup__cities button:hover,
+.locationPopup__world button:hover {
+  background-color: #ddd;
+}
+
+.header__profile {
+  display: flex;
+  align-items: center;
+}
+
+.header__profile span {
+  margin-right: 15px;
+  color: #222;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header__icon {
+  margin: 0 10px;
+  color: #222;
+}
+
+.header__user {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 6px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}

@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# airbnb 클론코딩 : 2408- FE 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Tech used React HTML CSS JavaScript
+- Type Clone Coding
+- About 에어비엔비 클론코딩
+- GitHub https://github.com/04mmii/s-clone01-2408
+- Link https://s-clone01-2408.vercel.app/
 
-## Available Scripts
+> **목표**
+>
+> 1. 실제 서비스를 바탕으로 동일하게 만들면서 제품이 만들어지는 과정을 이해
+> 2. 지금까지 JavaScript, React에서 배웠던 내용들을 실습을 통해 연습
 
-In the project directory, you can run:
+-일정 관리
 
-### `npm start`
+<aside>
+<img src="/icons/checklist_lightgray.svg" alt="/icons/checklist_lightgray.svg" width="40px" />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[https://www.notion.so/airbnb-124b26ffdbf580239b13c40be9463b20?pvs=4#135b26ffdbf580269600cf1527f0f881](https://www.notion.so/airbnb-2408-FE-124b26ffdbf580239b13c40be9463b20?pvs=21)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+</aside>
 
-### `npm test`
+### **프로젝트 개요**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+사용자가 숙소 리스트를 확인하고, 각 숙소의 세부 정보 페이지로 이동하여 상세 정보를 열람할 수 있는 웹 애플리케이션입니다. 초기 화면에는 숙소 리스트가 정해진 갯수로 표시되며, 숙소 카드를 클릭하면 해당 숙소의 상세 페이지로 이동해 이미지, 위치, 일정, 가격, 평가 등의 세부 정보를 확인할 수 있습니다.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **주요 기능**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **숙소 리스트 표시**
+   - 숙소 리스트를 표시하며, 카드형 UI로 제공
+   - 사진 좌/우 이동: 첫이미지 왼쪽 화살표, 마지막 이미지 오른쪽 화살표 안보이는 기능 구현
+2. **상세 페이지 이동**
+   - 각 숙소 카드를 클릭하면 해당 숙소의 상세 페이지로 이동하여 세부 정보를 표시
+   - 상세 페이지에서는 숙소의 이미지, 위치, 일정, 가격, 평가 등의 정보를 제공
+3. **뒤로 가기 버튼**
+   - 상세 페이지 상단에 뒤로 가기 버튼을 제공하여 숙소 리스트 페이지로 돌아갈 수 있음
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+### **주요** React 훅 **구성**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **useState**
+   - 상태를 관리하기 위해 사용되었습니다.
+2. **useEffect**
+   - 컴포넌트가 렌더링된 후 특정 작업을 수행하기 위해 사용되었습니다. `Detail`에서 URL 파라미터를 사용해 특정 숙소 데이터를 가져와 상태에 저장할 때 사용됩니다.
+3. **useParams**
+   - React Router 훅으로, URL에서 전달된 파라미터(예: 숙소 ID)를 가져오는 데 사용됩니다. 이 파라미터를 사용해 해당 ID의 숙소 데이터를 필터링할 수 있습니다.
+4. **useNavigate**
+   - 페이지 이동을 위해 React Router에서 제공하는 훅입니다. 리스트에서 특정 숙소 카드를 클릭할 때 상세 페이지로 이동하거나 뒤로 가기 버튼을 통해 이전 페이지로 돌아가도록 구현하는 데 사용되었습니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### **향후 추가 기능**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **검색 기능**: 숙소 위치나 일정 등을 기반으로 숙소 검색 기능 추가
+2. **로그인 기능**: 구글 연결 등 로그인 기능 추가
+3. **즐겨찾기 기능**: 관심 있는 숙소를 저장해 놓을 수 있는 즐겨찾기 기능
+4. **필터링 기능**: 가격, 평점, 거리 등의 조건에 맞춰 리스트를 필터링
+5. **API 연결:** 외부 API에서 숙소 데이터를 받아와 실시간으로 렌더링
