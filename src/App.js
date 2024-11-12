@@ -4,6 +4,7 @@ import List from "./component/list/List";
 import Detail from "./pages/Detail";
 import Header from "./component/header/header.js";
 import accommodations from "./data/data";
+import GridRow from '/Users/heeji/s-clone01-2408/src/component/category/category.js';
 
 const App = () => {
   const navigate = useNavigate();
@@ -17,6 +18,10 @@ const App = () => {
             <header>
               <Header />
             </header>
+              <div classname="Category">
+                <h1>My Grid Example</h1>
+                  <GridRow />  {/* GridRow 컴포넌트를 렌더링 */}
+              </div>
             <div className="card-list">
               {accommodations.map((a, i) => {
                 return (
