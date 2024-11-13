@@ -3,12 +3,8 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import List from "./component/list/List";
 import Detail from "./pages/Detail";
 import Header from "./component/header/header.js";
-<<<<<<< Updated upstream
-import accommodations from "./data/data";
-=======
 import GridRow from "./component/category/category.js";
 import { fetchHotels } from "./api/amadeus";
->>>>>>> Stashed changes
 
 const App = () => {
   const [accommodations, setAccommodations] = useState([]);
@@ -35,13 +31,12 @@ const App = () => {
             <header>
               <Header />
             </header>
-<<<<<<< Updated upstream
-=======
+
             <div classname="Category">
               <h1>My Grid Example</h1>
               <GridRow /> {/* GridRow 컴포넌트를 렌더링 */}
             </div>
->>>>>>> Stashed changes
+
             <div className="card-list">
               {accommodations.map((a, i) => {
                 return (
