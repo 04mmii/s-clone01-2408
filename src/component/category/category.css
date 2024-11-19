@@ -1,20 +1,57 @@
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(16, 1fr); /* 10개의 동일한 비율 칸 */
-    /* 칸 사이의 간격 */
-    padding: 10px;
-  }
-  
-  .grid-item {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    text-align: center;
-    padding: 20px
-  }
+.category-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 20px 0;
+}
 
-  .grid-item img {
-    width: 100%;   /* 그리드 칸 너비에 맞춤 */
-    height: auto;  /* 높이는 자동 조정 */
-    max-width: 150px; /* 최대 너비 제한 */
-  }
-  
+.category-grid {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 16px;
+  padding: 10px;
+}
+
+.category-item {
+  text-align: center;
+  flex: 0 0 auto;
+  width: 120px;
+  cursor: pointer;
+}
+
+.category-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.category-item img:hover {
+  transform: scale(1.1);
+}
+
+.scroll-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.scroll-button.left {
+  left: 0;
+}
+
+.scroll-button.right {
+  right: 0;
+}
+
+.scroll-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}

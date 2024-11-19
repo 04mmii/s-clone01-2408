@@ -1,36 +1,52 @@
-import React from 'react';
-import './category.css'
+import React, { useRef } from "react";
+import "./category.css";
 
+const GridRow = () => {
+  const categories = [
+    { name: "국립공원", image: "/image/국립공원.jpeg" },
+    { name: "료칸", image: "/image/료칸.jpeg" },
+    { name: "그랜드 피아노", image: "/image/그랜드 피아노.jpeg" },
+    { name: "마차", image: "/image/마차.jpeg" },
+    { name: "돔하우스", image: "/image/돔하우스.jpeg" },
+    { name: "복토 주택", image: "/image/복토 주택.jpeg" },
+    { name: "사막", image: "/image/사막.jpeg" },
+    { name: "북극", image: "/image/북극.jpeg" },
+    { name: "상징적 도시", image: "/image/상징적 도시.jpeg" },
+    { name: "서핑", image: "/image/서핑.jpeg" },
+    { name: "스키", image: "/image/스키.jpeg" },
+  ];
 
+  const scrollRef = useRef(null);
 
+  const scroll = (direction) => {
+    const { current } = scrollRef;
+    if (direction === "left") {
+      current.scrollLeft -= 200;
+    } else {
+      current.scrollLeft += 200;
+    }
+  };
 
-const category = () => {
+  return (
+    <div className="category-container">
+      <button className="scroll-button left" onClick={() => scroll("left")}>
+        &#9664;
+      </button>
 
-    const images = [
-        '/image/국립공원.jpeg',
-        '/image/료칸.jpeg',
-        '/image/그랜드 피아노.jpeg',
-        '/image/민수.jpeg',
-        '/image/마차.jpeg',
-        '/image/돔하우스.jpeg',
-        '/image/리아드.jpeg',
-        '/image/무장애.jpeg',
-        '/image/복토 주택.jpeg',
-        '/image/사막.jpeg',
-        '/image/북극.jpeg',
-        '/image/상징적 도시.jpeg',
-        '/image/서핑.jpeg',
-        '/image/스키.jpeg',
-    ]
-    return (
-        <div className="grid-container">
-        {images.map((image, index) => (
-          <div className="grid-item" key={index}>
-            <img src={image} alt={`Item ${index+1}`} />
+      <div className="category-grid" ref={scrollRef}>
+        {categories.map((category, index) => (
+          <div className="category-item" key={index}>
+            <img src={category.image} alt={category.name} />
+            <p>{category.name}</p>
           </div>
         ))}
       </div>
-    );
+
+      <button className="scroll-button right" onClick={() => scroll("right")}>
+        &#9654;
+      </button>
+    </div>
+  );
 };
 
-export default category;
+export default GridRow;
