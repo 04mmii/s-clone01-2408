@@ -10,7 +10,7 @@ const accommodation = [
     dates: "11월 3일~8일",
     price: "₩114,118",
     rating: "4.88",
-    category: ["국립공원", "료칸"],
+    category: ["국립공원", "그랜드피아노"],
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const accommodation = [
     dates: "12월 1일~5일",
     price: "₩150,000",
     rating: "4.72",
-    category: ["국립공원", "료칸"],
+    category: ["료칸"],
   },
   {
     id: 3,
