@@ -15,8 +15,8 @@ const accommodation = [
   {
     id: 2,
     images: [
-      "https://a0.muscache.com/im/pictures/98765abf-1234-5678-9101-abcde54321f.jpg?im_w=720",
-      "https://a0.muscache.com/im/pictures/54321bcd-2345-6789-0123-bcdef09876a.jpg?im_w=720",
+      "https://images.unsplash.com/photo-1",
+      "https://images.unsplash.com/photo-2",
     ],
     location: "Seogwipo, Jeju-do",
     distance: "320km",
@@ -28,8 +28,8 @@ const accommodation = [
   {
     id: 3,
     images: [
-      "https://a0.muscache.com/im/pictures/hosting/12345abc-5432-6789-9101-cdef09876543.jpg?im_w=720",
-      "https://a0.muscache.com/im/pictures/abcdef12-3456-7890-1234-defgh98765.jpg?im_w=720",
+      "https://images.unsplash.com/photo-1",
+      "https://images.unsplash.com/photo-2",
     ],
     location: "Busanjin-gu, Busan",
     distance: "400km",
