@@ -1,0 +1,75 @@
+.grid-row-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 10px 32px;
+  box-sizing: border-box;
+}
+
+.scroll-button {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.scroll-button.left {
+  left: 10px;
+}
+
+.scroll-button.right {
+  right: 10px;
+}
+
+.grid-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 30px;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For IE and Edge */
+}
+
+.grid-row::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.category-item {
+  flex: 0 0 auto;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-bottom 0.2s ease;
+  padding-bottom: 3px; /* 추가된 공간 */
+  padding-right: 10px;
+}
+
+.category-item img {
+  width: 30%;
+  border-radius: 8px;
+}
+
+.category-item p {
+  margin-top: 8px;
+  font-size: 0.68rem;
+  color: #333;
+}
+
+/* 활성화된 카테고리: 하단 검정색 선 */
+.category-item.active {
+  font-weight: bold;
+  border-bottom: 3px solid black;
+}
+
+/* 마우스 호버 시: 하단 회색 선 */
+.category-item:hover {
+  border-bottom: 3px solid gray;
+}

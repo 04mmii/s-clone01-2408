@@ -2,25 +2,29 @@ import React, { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import List from "./component/list/List";
 import Detail from "./pages/Detail";
-import Header from "./component/header/header.js";
-import GridRow from "./component/category/category.js";
-import accommodation from "./data/data.js";
+import Header from "./component/header/Header";
+import accommodations from "./data/data";
+import GridRow from "./component/category/GridRow";
 
 const App = () => {
-  const [accommodations, setAccommodations] = useState(accommodation);
-  const [filteredCategory, setFilteredCategory] = useState("");
   const navigate = useNavigate();
 
-  // 카테고리 필터링
-  const handleCategorySelect = (category) => {
-    setFilteredCategory(category);
-    if (category === "") {
-      setAccommodations(accommodation); // 전체 보기
-    } else {
-      setAccommodations(
-        accommodation.filter((item) => item.category === category)
-      );
-    }
+  // 카테고리 선택 상태
+  const [selectedCategory, setSelectedCategory] = useState("전체 보기");
+
+  // 카드 표시 개수 상태
+  const initialVisibleCount = 9;
+  const [visibleCards, setVisibleCards] = useState(initialVisibleCount);
+
+  // 카테고리에 따라 숙소 데이터 필터링
+  const filteredAccommodations =
+    selectedCategory === "전체 보기"
+      ? accommodations
+      : accommodations.filter((a) => a.category === selectedCategory);
+
+  // 더보기 버튼 클릭 시 2줄(카드 6개) 추가
+  const handleLoadMore = () => {
+    setVisibleCards((prev) => prev + 6);
   };
 
   return (
@@ -33,14 +37,14 @@ const App = () => {
               <Header />
             </header>
 
-            <div className="Category">
-              <h1>Choose a Category</h1>
-              <GridRow onCategorySelect={handleCategorySelect} />{" "}
-              {/* 카테고리 */}
+            {/* 카테고리 선택 컴포넌트 */}
+            <div>
+              <GridRow onCategorySelect={setSelectedCategory} />
             </div>
 
+            {/* 필터링된 숙소 리스트 */}
             <div className="card-list">
-              {accommodations.map((a) => (
+              {filteredAccommodations.slice(0, visibleCards).map((a) => (
                 <List
                   onClick={() => navigate(`/detail/${a.id}`)}
                   key={a.id}
@@ -48,12 +52,24 @@ const App = () => {
                 />
               ))}
             </div>
+
+            {/* 더보기 버튼 */}
+            {visibleCards < filteredAccommodations.length && (
+              <button onClick={handleLoadMore}>더보기</button>
+            )}
           </>
         }
       />
       <Route
         path="/detail/:id"
-        element={<Detail accommodations={accommodations} />}
+        element={
+          <>
+            <header>
+              <Header />
+            </header>
+            <Detail accommodations={accommodations} />
+          </>
+        }
       />
     </Routes>
   );

@@ -15,8 +15,8 @@ const accommodation = [
   {
     id: 2,
     images: [
-      "https://images.unsplash.com/photo-1",
-      "https://images.unsplash.com/photo-2",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq",
+      "https://a0.muscache.com/im/pictures/5f2887ae-02e5-48d0-9b69-97d0404dc31b.jpg?im_w=720",
     ],
     location: "Seogwipo, Jeju-do",
     distance: "320km",
@@ -28,8 +28,8 @@ const accommodation = [
   {
     id: 3,
     images: [
-      "https://images.unsplash.com/photo-1",
-      "https://images.unsplash.com/photo-2",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq",
+      "https://a0.muscache.com/im/pictures/5f2887ae-02e5-48d0-9b69-97d0404dc31b.jpg?im_w=720",
     ],
     location: "Busanjin-gu, Busan",
     distance: "400km",
@@ -41,8 +41,8 @@ const accommodation = [
   {
     id: 4,
     images: [
-      "https://a0.muscache.com/im/pictures/98765432-1234-5678-9012-abcdef12345.jpg?im_w=720",
-      "https://a0.muscache.com/im/pictures/abcdef98-7654-3210-1234-56789abcde.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq",
+      "https://a0.muscache.com/im/pictures/5f2887ae-02e5-48d0-9b69-97d0404dc31b.jpg?im_w=720",
     ],
     location: "Mapo-gu, Seoul",
     distance: "5km",
@@ -54,8 +54,8 @@ const accommodation = [
   {
     id: 5,
     images: [
-      "https://a0.muscache.com/im/pictures/hosting/abcdef12-3456-7890-1234-defghijklmn.jpg?im_w=720",
-      "https://a0.muscache.com/im/pictures/12345678-9876-5432-1098-abcd12345678.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq",
+      "https://a0.muscache.com/im/pictures/5f2887ae-02e5-48d0-9b69-97d0404dc31b.jpg?im_w=720",
     ],
     location: "Gwangju, Jeollanam-do",
     distance: "270km",
@@ -67,8 +67,8 @@ const accommodation = [
   {
     id: 6,
     images: [
-      "https://a0.muscache.com/im/pictures/hosting/abcdef12-6789-0123-4567-abcd12345678.jpg?im_w=720",
-      "https://a0.muscache.com/im/pictures/34567890-1234-5678-9101-abcdef123456.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq",
+      "https://a0.muscache.com/im/pictures/5f2887ae-02e5-48d0-9b69-97d0404dc31b.jpg?im_w=720",
     ],
     location: "Itaewon, Seoul",
     distance: "8km",
@@ -80,8 +80,8 @@ const accommodation = [
   {
     id: 7,
     images: [
-      "https://a0.muscache.com/im/pictures/hosting/abcd1234-5678-9101-1123-defg98765432.jpg?im_w=720",
-      "https://a0.muscache.com/im/pictures/98765432-1234-5678-9012-abcd09876543.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq",
+      "https://a0.muscache.com/im/pictures/5f2887ae-02e5-48d0-9b69-97d0404dc31b.jpg?im_w=720",
     ],
     location: "Andong, Gyeongsangbuk-do",
     distance: "150km",
@@ -93,8 +93,8 @@ const accommodation = [
   {
     id: 8,
     images: [
-      "https://a0.muscache.com/im/pictures/hosting/abcd9876-5432-1098-7654-abcdef123456.jpg?im_w=720",
-      "https://a0.muscache.com/im/pictures/abcdef12-3456-7890-1234-defghijklmno.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq",
+      "https://a0.muscache.com/im/pictures/5f2887ae-02e5-48d0-9b69-97d0404dc31b.jpg?im_w=720",
     ],
     location: "Yeosu, Jeollanam-do",
     distance: "350km",
@@ -106,8 +106,8 @@ const accommodation = [
   {
     id: 9,
     images: [
-      "https://a0.muscache.com/im/pictures/hosting/abcdef12-3456-7890-1234-defghij12345.jpg?im_w=720",
-      "https://a0.muscache.com/im/pictures/12345678-9876-5432-1098-abcdef098765.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq",
+      "https://a0.muscache.com/im/pictures/5f2887ae-02e5-48d0-9b69-97d0404dc31b.jpg?im_w=720",
     ],
     location: "Incheon",
     distance: "40km",
@@ -119,8 +119,8 @@ const accommodation = [
   {
     id: 10,
     images: [
-      "https://a0.muscache.com/im/pictures/hosting/abcdef12-3456-7890-1234-abcd12345678.jpg?im_w=720",
-      "https://a0.muscache.com/im/pictures/12345678-8765-4321-0987-abcd98765432.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq",
+      "https://a0.muscache.com/im/pictures/5f2887ae-02e5-48d0-9b69-97d0404dc31b.jpg?im_w=720",
     ],
     location: "Chuncheon, Gangwon-do",
     distance: "120km",

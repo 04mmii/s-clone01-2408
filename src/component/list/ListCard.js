@@ -8,7 +8,7 @@ const ListCard = ({ id, images, location, distance, dates, price, rating }) => {
   const [isHovered, setIsHovered] = useState(false); // 마우스 호버 상태 추적
   const [isLiked, setIsLiked] = useState(false); // 하트 클릭 상태
   const totalImages = images.length; // 총 이미지 개수
-  const MAX_DOTS = 5; // 최대 5개의 점만 표시
+  const MAX_DOTS = 10; // 최대 10개의 점만 표시
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -48,6 +48,7 @@ const ListCard = ({ id, images, location, distance, dates, price, rating }) => {
     <div className="card">
       <div
         className="image-container"
+        // onClick={handleNextImage}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -107,7 +108,7 @@ const ListCard = ({ id, images, location, distance, dates, price, rating }) => {
         </div>
         <p className="distance">{distance} 거리</p>
         <p className="dates">{dates}</p>
-        <p>₩{price.toLocaleString()} / 박</p>
+        <p>{price.toLocaleString()} / 박</p>
       </div>
     </div>
   );

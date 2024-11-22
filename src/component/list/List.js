@@ -1,6 +1,6 @@
 import React from "react";
 import ListCard from "./ListCard";
-import accommodations from "../../data/data";
+import accommodation from "../../data/data";
 import { useNavigate } from "react-router-dom";
 import "./List.css";
 
@@ -16,7 +16,7 @@ const List = ({ data }) => {
     <div className="main-container">
       {/* <h1>숙소 목록</h1> */}
       <div className="card-list">
-        {accommodations.map((item, index) => (
+        {accommodation.map((item, index) => (
           <ListCard
             key={index}
             id={item.id}
@@ -24,7 +24,7 @@ const List = ({ data }) => {
             title={item.title}
             location={item.location}
             price={item.price}
-            date={item.date}
+            date={item.dates}
             rating={item.rating}
             onClick={handleClick}
           />
