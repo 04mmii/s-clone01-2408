@@ -2,6 +2,32 @@
   text-align: center;
   padding: 20px;
 }
-.GridRow {
+.grid-row-container {
+  margin: 20px 0;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
   padding: 20px;
+}
+
+.load-more-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.load-more-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff385c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.load-more-button:hover {
+  background-color: #e03550;
 }

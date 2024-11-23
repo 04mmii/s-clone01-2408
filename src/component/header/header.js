@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./header.css";
+import { useNavigate } from "react-router-dom";
 import { FaUserCircle, FaSearch, FaGlobe } from "react-icons/fa";
 
 const Header = () => {
   const [selectedTab, setSelectedTab] = useState("stays");
   const [showLocationPopup, setShowLocationPopup] = useState(false);
   const locationRef = useRef(null);
+  const navigate = useNavigate();
 
   // 팝업 외부 클릭 감지
   useEffect(() => {
@@ -20,11 +22,19 @@ const Header = () => {
     };
   }, []);
 
+  // 로고 클릭 시 홈으로 이동
+  const handleLogoClick = () => {
+    navigate("/"); // 홈으로 이동
+  };
+
   return (
     <header className="header">
       {/* 로고 */}
-      <div className="header__logo">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpw4vLCtSxvAtFo2TeYoo4aVtBmbXHeAk_7Q&s" />
+      <div className="header__logo" onClick={handleLogoClick}>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpw4vLCtSxvAtFo2TeYoo4aVtBmbXHeAk_7Q&s"
+          alt="홈페이지 로고"
+        />
       </div>
 
       <div className="header__center">

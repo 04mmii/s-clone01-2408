@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./GridRow.css";
 
-const GridRow = ({ onCategorySelect }) => {
+const GridRow = ({ onCategorySelect, selectedCategory }) => {
   const categories = [
     // { name: "전체 보기", image: "/image/all.jpeg" },
     { name: "인기 급상승", image: "/image/인기 급상승.jpeg" },
@@ -38,7 +38,6 @@ const GridRow = ({ onCategorySelect }) => {
   const scrollRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState("전체 보기");
 
   // 스크롤 위치에 따른 화살표 표시 업데이트
   const handleScroll = () => {
@@ -55,11 +54,11 @@ const GridRow = ({ onCategorySelect }) => {
     else current.scrollBy({ left: 200, behavior: "smooth" });
   };
 
-  // 카테고리 선택 처리
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
-    onCategorySelect(category);
-  };
+  // // 카테고리 선택 처리
+  // const categorySelect = (category) => {
+  //   setSelectedCategory(category);
+  //   categorySelect(category);
+  // };
 
   useEffect(() => {
     handleScroll();
@@ -80,13 +79,18 @@ const GridRow = ({ onCategorySelect }) => {
       )}
 
       <div className="grid-row" ref={scrollRef}>
-        {categories.map((category, index) => (
+        {categories.map((category, id) => (
           <div
             className={`category-item ${
               selectedCategory === category.name ? "active" : ""
             }`}
-            key={index}
-            onClick={() => handleCategorySelect(category.name)}
+            key={id}
+            onClick={() => {
+              if (selectedCategory !== category.name) {
+                console.log("선택된 카테고리:", category.name);
+                onCategorySelect(category.name);
+              } // 상위 컴포넌트로 카테고리 전달
+            }}
           >
             <img src={category.image} alt={category.name} />
             <p>{category.name}</p>

@@ -15,15 +15,16 @@ const accommodation = [
   {
     id: 2,
     images: [
-      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE3NzY4MTU2OTMzMjYwMTQ5OQ%3D%3D/original/7fe72e51-f9b5-4702-b71c-4b6c2134507b.jpeg?im_w=1440&im_q=highq",
-      "https://a0.muscache.com/im/pictures/5f2887ae-02e5-48d0-9b69-97d0404dc31b.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-802062343721369877/original/214a54b9-785f-419a-a928-a5c637f50029.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-802062343721369877/original/75789fba-de92-4a2c-8239-bdad76c7d025.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-802062343721369877/original/fe88ba1e-826d-4c6e-bb85-ab3c72d11cb0.jpeg?im_w=720",
     ],
     location: "Seogwipo, Jeju-do",
     distance: "320km",
     dates: "12월 1일~5일",
     price: "₩150,000",
     rating: "4.72",
-    category: ["료칸"],
+    category: ["동굴"],
   },
   {
     id: 3,
@@ -36,7 +37,7 @@ const accommodation = [
     dates: "11월 20일~25일",
     price: "₩99,999",
     rating: "4.50",
-    category: ["국립공원", "료칸"],
+    category: ["돔하우스", "료칸"],
   },
   {
     id: 4,

@@ -20,7 +20,27 @@ const App = () => {
   const filteredAccommodations =
     selectedCategory === "전체 보기"
       ? accommodations
-      : accommodations.filter((a) => a.category === selectedCategory);
+      : accommodations.filter((a) => {
+          if (!Array.isArray(a.category)) {
+            console.error("Invalid category format:", a.category);
+            return false;
+          }
+          return a.category.some(
+            (category) =>
+              category.trim().toLowerCase() ===
+              selectedCategory.trim().toLowerCase()
+          );
+        });
+  // const filteredAccommodations =
+  //   selectedCategory === "전체 보기"
+  //     ? accommodations
+  //     : accommodations.filter(
+  //         (a) => {
+  //           console.log("Category:", a.category, "Selected:", selectedCategory);
+  //           return a.category.includes(selectedCategory);
+  //         }
+  //         // a.category && a.category.includes(selectedCategory)
+  //       );
 
   // 더보기 버튼 클릭 시 2줄(카드 6개) 추가
   const handleLoadMore = () => {
@@ -38,14 +58,18 @@ const App = () => {
             </header>
 
             {/* 카테고리 선택 컴포넌트 */}
-            <div>
-              <GridRow onCategorySelect={setSelectedCategory} />
+            <div className="grid-row-container">
+              <GridRow
+                onCategorySelect={setSelectedCategory}
+                selectedCategory={selectedCategory}
+              />
             </div>
 
             {/* 필터링된 숙소 리스트 */}
             <div className="card-list">
               {filteredAccommodations.slice(0, visibleCards).map((a) => (
                 <List
+                  accommodations={filteredAccommodations}
                   onClick={() => navigate(`/detail/${a.id}`)}
                   key={a.id}
                   data={a}
@@ -55,7 +79,11 @@ const App = () => {
 
             {/* 더보기 버튼 */}
             {visibleCards < filteredAccommodations.length && (
-              <button onClick={handleLoadMore}>더보기</button>
+              <div className="load-more-container">
+                <button className="load-more-button" onClick={handleLoadMore}>
+                  더보기
+                </button>
+              </div>
             )}
           </>
         }
