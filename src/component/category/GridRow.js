@@ -87,7 +87,6 @@ const GridRow = ({ onCategorySelect, selectedCategory }) => {
             key={id}
             onClick={() => {
               if (selectedCategory !== category.name) {
-                console.log("선택된 카테고리:", category.name);
                 onCategorySelect(category.name);
               } // 상위 컴포넌트로 카테고리 전달
             }}

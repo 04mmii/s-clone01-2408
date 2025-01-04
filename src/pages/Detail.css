@@ -1,29 +1,72 @@
-.detail-container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: white;
+.title-section {
+  margin-bottom: 24px;
 }
 
-.image-gallery {
+.title-section h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.sub-title {
+  color: #717171;
+}
+
+.rating-box {
+  background-color: #f7f7f7;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.trophy-rating {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  align-items: center;
+  gap: 16px;
 }
 
-.image-gallery img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
+.price-card {
+  position: sticky;
+  top: 80px;
+  padding: 24px;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-.back-button {
-  background: none;
+.date-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.book-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #ff385c;
+  color: white;
   border: none;
-  font-size: 16px;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
-  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .detail-layout {
+    flex-direction: column;
+  }
+
+  .info-section,
+  .booking-section {
+    flex: 0 0 100%;
+  }
+}
+
+.detail-info {
+  display: flex;
+  gap: 20px;
+  padding: 5px;
+  max-width: 1200px;
+  margin: 0 auto;
 }

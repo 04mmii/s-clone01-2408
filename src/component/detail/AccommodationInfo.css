@@ -1,0 +1,115 @@
+.detail-layout {
+  display: flex;
+  gap: 48px;
+  padding: 24px;
+  margin: 0 auto;
+}
+
+.accommodation-info {
+  padding: 24px;
+}
+
+.guest-info {
+  margin-bottom: 24px;
+}
+
+.rating-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.rating-box {
+  background-color: #f8f8f8;
+  padding: 16px;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.trophy-rating {
+  display: flex;
+}
+.trophy {
+  font-size: 24px;
+}
+
+.rating-text {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.rating {
+  right: 100px;
+  gap: 8px;
+  margin-left: 180px;
+  display: flex;
+}
+.rating-n {
+  border-right: 1px solid #333;
+  padding-right: 5px;
+}
+.rating-c {
+  text-align: center;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.host-section {
+  padding: 24px 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.host-profile {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.host-image {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.description-section {
+  margin-top: 24px;
+}
+
+.translated-notice {
+  color: #717171;
+  margin-bottom: 16px;
+}
+
+.show-original {
+  color: #222;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.description-text {
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.show-more {
+  color: #222;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}

@@ -24,7 +24,7 @@ const accommodation = [
     dates: "12월 1일~5일",
     price: "₩150,000",
     rating: "4.72",
-    category: ["동굴"],
+    category: ["동굴", "국립공원"],
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const accommodation = [
     dates: "11월 20일~25일",
     price: "₩99,999",
     rating: "4.50",
-    category: ["돔하우스", "료칸"],
+    category: ["돔하우스", "창작공간간"],
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ const accommodation = [
     dates: "11월 15일~18일",
     price: "₩200,000",
     rating: "4.95",
-    category: ["국립공원", "료칸"],
+    category: ["료칸"],
   },
   {
     id: 5,
@@ -63,7 +63,7 @@ const accommodation = [
     dates: "12월 10일~14일",
     price: "₩130,000",
     rating: "4.80",
-    category: ["국립공원", "료칸"],
+    category: ["마차"],
   },
   {
     id: 6,
@@ -76,7 +76,7 @@ const accommodation = [
     dates: "11월 25일~30일",
     price: "₩175,000",
     rating: "4.85",
-    category: ["국립공원", "료칸"],
+    category: ["보트", "북극"],
   },
   {
     id: 7,
@@ -89,7 +89,7 @@ const accommodation = [
     dates: "11월 27일~12월 1일",
     price: "₩110,000",
     rating: "4.60",
-    category: ["국립공원", "료칸"],
+    category: ["수영장", "디자인", "사막"],
   },
   {
     id: 8,
@@ -102,7 +102,7 @@ const accommodation = [
     dates: "12월 5일~10일",
     price: "₩140,000",
     rating: "4.70",
-    category: ["국립공원", "료칸"],
+    category: ["국립공원", "사막"],
   },
   {
     id: 9,
@@ -115,7 +115,7 @@ const accommodation = [
     dates: "11월 18일~20일",
     price: "₩90,000",
     rating: "4.65",
-    category: ["국립공원", "료칸"],
+    category: ["국립공원", "동굴"],
   },
   {
     id: 10,
@@ -128,7 +128,7 @@ const accommodation = [
     dates: "12월 15일~19일",
     price: "₩100,000",
     rating: "4.75",
-    category: ["국립공원", "료칸"],
+    category: ["기상천외한 숙소", "인기급상승"],
   },
 ];
 
