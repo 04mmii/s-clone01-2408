@@ -1,17 +1,11 @@
-.title-section {
-  margin-bottom: 24px;
+.detail-info {
+  position: relative;
 }
 
-.title-section h1 {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 8px;
+.info-container {
+  display: flex;
+  gap: 20px;
 }
-
-.sub-title {
-  color: #717171;
-}
-
 .rating-box {
   background-color: #f7f7f7;
   padding: 16px;
@@ -19,48 +13,16 @@
   margin-bottom: 24px;
 }
 
-.trophy-rating {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.price-card {
-  position: sticky;
-  top: 80px;
-  padding: 24px;
-  border: 1px solid #dddddd;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-}
-
-.date-picker {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin: 16px 0;
-}
-
-.book-button {
-  width: 100%;
-  padding: 14px;
-  background-color: #ff385c;
-  color: white;
+.back-button {
+  background-color: #ffffff00;
   border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
+  font-size: 16px;
+  padding-left: 200px;
+  margin-top: 20px;
 }
 
-@media (max-width: 768px) {
-  .detail-layout {
-    flex-direction: column;
-  }
-
-  .info-section,
-  .booking-section {
-    flex: 0 0 100%;
-  }
+.accommodation-info {
+  padding-bottom: 20px; /* Adjust this value as needed */
 }
 
 .detail-info {
@@ -69,4 +31,15 @@
   padding: 5px;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.booking-section {
+  position: sticky;
+  top: 20px; /* Adjust this value to set the distance from the top of the viewport */
+  align-self: flex-start;
+}
+
+/* Ensure the AccommodationInfo takes up the remaining space */
+.info-container > :first-child {
+  flex: 1;
 }

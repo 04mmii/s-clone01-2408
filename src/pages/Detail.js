@@ -4,6 +4,7 @@ import "./Detail.css";
 import ImageGallery from "../component/detail/ImageGallery ";
 import AccommodationInfo from "../component/detail/AccommodationInfo";
 import DateRangeSelector from "../component/detail/DateRangeSelector";
+import Review from "../component/detail/Review";
 
 const Detail = ({ accommodations }) => {
   const { id } = useParams();
@@ -39,6 +40,9 @@ const Detail = ({ accommodations }) => {
         <div className="booking-section">
           <DateRangeSelector />
         </div>
+      </div>
+      <div>
+        <Review />
       </div>
     </div>
   );

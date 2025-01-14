@@ -5,6 +5,8 @@ import Detail from "./pages/Detail";
 import Header from "./component/header/Header";
 import accommodations from "./data/data";
 import GridRow from "./component/category/GridRow";
+import Footer from "./component/footer/footer";
+import "./App.css";
 
 const App = () => {
   const navigate = useNavigate();
@@ -13,7 +15,7 @@ const App = () => {
   const [selectedCategory, setSelectedCategory] = useState("전체 보기");
 
   // 카드 표시 개수 상태
-  const initialVisibleCount = 9;
+  const initialVisibleCount = 15; // 처음에 5줄(15개의 카드) 표시
   const [visibleCards, setVisibleCards] = useState(initialVisibleCount);
 
   // 카테고리에 따라 숙소 데이터 필터링
@@ -31,16 +33,6 @@ const App = () => {
               selectedCategory.trim().toLowerCase()
           );
         });
-  // const filteredAccommodations =
-  //   selectedCategory === "전체 보기"
-  //     ? accommodations
-  //     : accommodations.filter(
-  //         (a) => {
-  //           console.log("Category:", a.category, "Selected:", selectedCategory);
-  //           return a.category.includes(selectedCategory);
-  //         }
-  //         // a.category && a.category.includes(selectedCategory)
-  //       );
 
   // 더보기 버튼 클릭 시 2줄(카드 6개) 추가
   const handleLoadMore = () => {
@@ -57,7 +49,6 @@ const App = () => {
               <Header />
             </header>
 
-            {/* 카테고리 선택 컴포넌트 */}
             <div className="grid-row-container">
               <GridRow
                 onCategorySelect={setSelectedCategory}
@@ -65,7 +56,6 @@ const App = () => {
               />
             </div>
 
-            {/* 필터링된 숙소 리스트 */}
             <div className="card-list">
               {filteredAccommodations.slice(0, visibleCards).map((a) => (
                 <List
@@ -77,7 +67,6 @@ const App = () => {
               ))}
             </div>
 
-            {/* 더보기 버튼 */}
             {visibleCards < filteredAccommodations.length && (
               <div className="load-more-container">
                 <button className="load-more-button" onClick={handleLoadMore}>
@@ -85,6 +74,9 @@ const App = () => {
                 </button>
               </div>
             )}
+            <footer>
+              <Footer />
+            </footer>
           </>
         }
       />
