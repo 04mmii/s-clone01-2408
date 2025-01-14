@@ -1,26 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import List from "./component/list/List";
 import Detail from "./pages/Detail";
-import Header from "./component/header/header.js";
-import GridRow from "./component/category/category.js";
-import { fetchHotels } from "./api/amadeus";
+import Header from "./component/header/Header";
+import accommodations from "./data/data";
+import GridRow from "./component/category/GridRow";
+import Footer from "./component/footer/footer";
+import "./App.css";
 
 const App = () => {
-  const [accommodations, setAccommodations] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const loadHotels = async () => {
-      try {
-        const data = await fetchHotels("NYC", "2024-11-10", "2024-11-15");
-        setAccommodations(data.data); // 가져온 데이터로 상태 업데이트
-      } catch (error) {
-        console.error("Error fetching accommodations:", error);
-      }
-    };
-    loadHotels();
-  }, []);
+  // 카테고리 선택 상태
+  const [selectedCategory, setSelectedCategory] = useState("전체 보기");
+
+  // 카드 표시 개수 상태
+  const initialVisibleCount = 15; // 처음에 5줄(15개의 카드) 표시
+  const [visibleCards, setVisibleCards] = useState(initialVisibleCount);
+
+  // 카테고리에 따라 숙소 데이터 필터링
+  const filteredAccommodations =
+    selectedCategory === "전체 보기"
+      ? accommodations
+      : accommodations.filter((a) => {
+          if (!Array.isArray(a.category)) {
+            console.error("Invalid category format:", a.category);
+            return false;
+          }
+          return a.category.some(
+            (category) =>
+              category.trim().toLowerCase() ===
+              selectedCategory.trim().toLowerCase()
+          );
+        });
+
+  // 더보기 버튼 클릭 시 2줄(카드 6개) 추가
+  const handleLoadMore = () => {
+    setVisibleCards((prev) => prev + 6);
+  };
 
   return (
     <Routes>
@@ -32,29 +49,47 @@ const App = () => {
               <Header />
             </header>
 
-            <div classname="Category">
-              <h1>My Grid Example</h1>
-              <GridRow /> {/* GridRow 컴포넌트를 렌더링 */}
+            <div className="grid-row-container">
+              <GridRow
+                onCategorySelect={setSelectedCategory}
+                selectedCategory={selectedCategory}
+              />
             </div>
 
             <div className="card-list">
-              {accommodations.map((a, i) => {
-                return (
-                  <List
-                    onClick={() => navigate(`/detail/${a.hotel.hotelId}`)}
-                    key={a.hotel.hotelId}
-                    data={a}
-                    // accommodations={accommodations[i]}
-                  />
-                );
-              })}
+              {filteredAccommodations.slice(0, visibleCards).map((a) => (
+                <List
+                  accommodations={filteredAccommodations}
+                  onClick={() => navigate(`/detail/${a.id}`)}
+                  key={a.id}
+                  data={a}
+                />
+              ))}
             </div>
+
+            {visibleCards < filteredAccommodations.length && (
+              <div className="load-more-container">
+                <button className="load-more-button" onClick={handleLoadMore}>
+                  더보기
+                </button>
+              </div>
+            )}
+            <footer>
+              <Footer />
+            </footer>
           </>
         }
       />
       <Route
         path="/detail/:id"
-        element={<Detail accommodations={accommodations} />}
+        element={
+          <>
+            <header>
+              <Header />
+            </header>
+            <Detail accommodations={accommodations} />
+          </>
+        }
       />
     </Routes>
   );

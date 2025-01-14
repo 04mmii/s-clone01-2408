@@ -8,6 +8,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.header__logo {
+  cursor: pointer; /* 클릭 가능하게 만듦 */
+  z-index: 10; /* 다른 요소에 가리지 않도록 보장 */
+}
+
 .header__logo img {
   height: 40px;
 }

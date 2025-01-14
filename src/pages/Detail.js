@@ -1,7 +1,10 @@
-// src/components/Detail.js
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Detail.css";
+import ImageGallery from "../component/detail/ImageGallery ";
+import AccommodationInfo from "../component/detail/AccommodationInfo";
+import DateRangeSelector from "../component/detail/DateRangeSelector";
+import Review from "../component/detail/Review";
 
 const Detail = ({ accommodations }) => {
   const { id } = useParams();
@@ -26,15 +29,20 @@ const Detail = ({ accommodations }) => {
       <button className="back-button" onClick={() => navigate(-1)}>
         ← 뒤로가기
       </button>
-      <h1>{location}</h1>
-      <p>⭐ {rating}</p>
-      <p>{dates}</p>
-      <h3>₩{price.toLocaleString()} / 박</h3>
-
-      <div className="image-gallery">
-        {images.map((img, index) => (
-          <img key={index} src={img} alt={`${location} 이미지 ${index + 1}`} />
-        ))}
+      <ImageGallery images={images} />
+      <div className="detail-info">
+        <AccommodationInfo
+          location={location}
+          dates={dates}
+          price={price}
+          rating={rating}
+        />
+        <div className="booking-section">
+          <DateRangeSelector />
+        </div>
+      </div>
+      <div>
+        <Review />
       </div>
     </div>
   );
