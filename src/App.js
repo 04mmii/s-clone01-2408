@@ -34,9 +34,8 @@ const App = () => {
           );
         });
 
-  // 더보기 버튼 클릭 시 2줄(카드 6개) 추가
   const handleLoadMore = () => {
-    setVisibleCards((prev) => prev + 6);
+    setVisibleCards((prev) => prev + 5);
   };
 
   return (
@@ -59,10 +58,9 @@ const App = () => {
             <div className="card-list">
               {filteredAccommodations.slice(0, visibleCards).map((a) => (
                 <List
-                  accommodations={filteredAccommodations}
-                  onClick={() => navigate(`/detail/${a.id}`)}
                   key={a.id}
                   data={a}
+                  onClick={() => navigate(`/detail/${a.id}`)}
                 />
               ))}
             </div>
@@ -88,6 +86,9 @@ const App = () => {
               <Header />
             </header>
             <Detail accommodations={accommodations} />
+            <footer>
+              <Footer />
+            </footer>
           </>
         }
       />

@@ -3,7 +3,7 @@ import ListCard from "./ListCard";
 import { useNavigate } from "react-router-dom";
 import "./List.css";
 
-const List = ({ accommodations, onClick }) => {
+const List = ({ data, onClick }) => {
   const navigate = useNavigate();
 
   const handleClick = (id) => {
@@ -11,22 +11,17 @@ const List = ({ accommodations, onClick }) => {
   };
 
   return (
-    <div className="main-container">
-      <div className="card-list">
-        {accommodations.map((item, id) => (
-          <ListCard
-            key={id}
-            id={item.id}
-            images={item.images}
-            title={item.title}
-            location={item.location}
-            price={item.price}
-            date={item.dates}
-            rating={item.rating}
-            onClick={() => handleClick(item.id)}
-          />
-        ))}
-      </div>
+    <div className="card-item">
+      <ListCard
+        id={data.id}
+        images={data.images}
+        title={data.title}
+        location={data.location}
+        price={data.price}
+        date={data.dates}
+        rating={data.rating}
+        onClick={() => handleClick(data.id)}
+      />
     </div>
   );
 };
