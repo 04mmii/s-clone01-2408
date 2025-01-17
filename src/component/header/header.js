@@ -2,32 +2,36 @@ import React, { useState, useRef, useEffect } from "react";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
 import { FaUserCircle, FaSearch, FaGlobe } from "react-icons/fa";
+import SearchItem from "./searchBar/SearchItem";
+import LocationPopup from "./searchBar/LocationPopup";
+import GuestsPopup from "./searchBar/GuestsPopup";
+import DateRangePopup from "./searchBar/DateRangePopup";
 
 const Header = () => {
   const [selectedTab, setSelectedTab] = useState("stays");
-  const [showLocationPopup, setShowLocationPopup] = useState(false);
-  const [isLocationActive, setIsLocationActive] = useState(false);
-  const locationRef = useRef(null);
+  const [activeItem, setActiveItem] = useState(null);
+  const searchItemsRef = useRef({});
   const navigate = useNavigate();
 
-  const handleLocationClick = (e) => {
-    e.stopPropagation();
-    setShowLocationPopup(true);
-    setIsLocationActive(true);
+  const handleItemClick = (item) => {
+    setActiveItem(activeItem === item ? null : item);
   };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (locationRef.current && !locationRef.current.contains(event.target)) {
-        setShowLocationPopup(false);
-        setIsLocationActive(false);
+      if (
+        activeItem &&
+        searchItemsRef.current[activeItem] &&
+        !searchItemsRef.current[activeItem].contains(event.target)
+      ) {
+        setActiveItem(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [activeItem]);
 
   const handleLogoClick = () => {
     navigate("/");
@@ -37,7 +41,6 @@ const Header = () => {
     <header className="header">
       <div className="header__center">
         <div className="header__top">
-          {/* 로고 */}
           <div className="header__logo" onClick={handleLogoClick}>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpw4vLCtSxvAtFo2TeYoo4aVtBmbXHeAk_7Q&s"
@@ -64,7 +67,6 @@ const Header = () => {
             </button>
           </nav>
 
-          {/* 프로필 메뉴 */}
           <div className="header__profile">
             <span className="header__profile-span">
               당신의 공간을 에어비앤비하세요
@@ -76,108 +78,88 @@ const Header = () => {
           </div>
         </div>
 
-        {/* 검색 바 */}
         <div className="search__container">
-          <div className="header__search">
-            {selectedTab === "stays" && (
+          <div
+            className={`header__search ${
+              selectedTab === "stays" ? "active-tab stays" : "experiences"
+            }`}
+          >
+            {selectedTab === "stays" ? (
               <>
-                <div
-                  className={`header__searchItem ${
-                    isLocationActive ? "active" : ""
-                  }`}
-                  onClick={handleLocationClick}
-                  ref={locationRef}
+                <SearchItem
+                  label="여행지"
+                  placeholder="여행지 검색"
+                  isActive={activeItem === "location"}
+                  onClick={() => handleItemClick("location")}
+                  ref={(el) => (searchItemsRef.current.location = el)}
                 >
-                  <span>여행지</span>
-                  <input
-                    type="text"
-                    placeholder="여행지 검색"
-                    onClick={(e) => e.stopPropagation()}
-                  />
-                  {showLocationPopup && (
-                    <div
-                      className="locationPopup"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <h4>지역으로 검색하기</h4>
-                      <div className="locationPopup__regions">
-                        <div className="region-item">
-                          <img src="/world-map.png" alt="유연한 검색" />
-                          <span>유연한 검색</span>
-                        </div>
-                        <div className="region-item">
-                          <img src="/europe-map.png" alt="유럽" />
-                          <span>유럽</span>
-                        </div>
-                        <div className="region-item">
-                          <img src="/japan-map.png" alt="일본" />
-                          <span>일본</span>
-                        </div>
-                        <div className="region-item">
-                          <img src="/asia-map.png" alt="동남아시아" />
-                          <span>동남아시아</span>
-                        </div>
-                      </div>
+                  {activeItem === "location" && <LocationPopup />}
+                </SearchItem>
 
-                      <h4>한국</h4>
-                      <div className="locationPopup__cities">
-                        <button>서울</button>
-                        <button>부산</button>
-                        <button>제주도</button>
-                        <button>속초</button>
-                        <button>강릉</button>
-                        <button>전주</button>
-                        <button>대구</button>
-                        <button>경주</button>
-                        <button>여수</button>
-                        <button>서귀포</button>
-                        <button>대전</button>
-                        <button>인천</button>
-                      </div>
-                      <h4>해외</h4>
-                      <div className="locationPopup__world">
-                        <button>오사카</button>
-                        <button>도쿄</button>
-                        <button>후쿠오카</button>
-                        <button>방콕</button>
-                        <button>런던</button>
-                        <button>치앙마이</button>
-                        <button>타이베이</button>
-                        <button>시드니</button>
-                      </div>
-                    </div>
+                <SearchItem
+                  label="체크인"
+                  placeholder="날짜 추가"
+                  isActive={
+                    activeItem === "checkIn" || activeItem === "checkOut"
+                  }
+                  onClick={() => handleItemClick("checkIn")}
+                  ref={(el) => (searchItemsRef.current.checkIn = el)}
+                >
+                  {(activeItem === "checkIn" || activeItem === "checkOut") && (
+                    <DateRangePopup />
                   )}
-                </div>
+                </SearchItem>
 
-                <div className="header__searchItem">
-                  <span>체크인</span>
-                  <input type="date" placeholder="날짜 추가" />
-                </div>
-                <div className="header__searchItem">
-                  <span>체크아웃</span>
-                  <input type="date" placeholder="날짜 추가" />
-                </div>
-                <div className="header__searchItem">
-                  <span>여행자</span>
-                  <input type="text" placeholder="게스트 추가" />
-                </div>
+                <SearchItem
+                  label="체크아웃"
+                  placeholder="날짜 추가"
+                  isActive={
+                    activeItem === "checkIn" || activeItem === "checkOut"
+                  }
+                  onClick={() => handleItemClick("checkOut")}
+                  ref={(el) => (searchItemsRef.current.checkOut = el)}
+                />
+
+                <SearchItem
+                  label="여행자"
+                  placeholder="게스트 추가"
+                  isActive={activeItem === "guests"}
+                  onClick={() => handleItemClick("guests")}
+                  ref={(el) => (searchItemsRef.current.guests = el)}
+                  isLastItem={true}
+                >
+                  {activeItem === "guests" && <GuestsPopup />}
+                </SearchItem>
               </>
-            )}
-
-            {selectedTab === "experiences" && (
+            ) : (
               <>
-                <div className="header__searchItem">
-                  <span>체험</span>
-                  <input type="text" placeholder="체험 검색" />
-                </div>
-                <div className="header__searchItem">
-                  <span>날짜</span>
-                  <input type="date" placeholder="날짜 추가" />
-                </div>
-                <div className="header__searchItem">
-                  <span>게스트</span>
-                  <input type="text" placeholder="게스트 추가" />
-                </div>
+                <SearchItem
+                  label="체험"
+                  placeholder="체험 검색"
+                  isActive={activeItem === "experience"}
+                  onClick={() => handleItemClick("experience")}
+                  ref={(el) => (searchItemsRef.current.experience = el)}
+                />
+
+                <SearchItem
+                  label="날짜"
+                  placeholder="날짜 추가"
+                  type="date"
+                  isActive={activeItem === "date"}
+                  onClick={() => handleItemClick("date")}
+                  ref={(el) => (searchItemsRef.current.date = el)}
+                />
+
+                <SearchItem
+                  label="게스트"
+                  placeholder="게스트 추가"
+                  isActive={activeItem === "experienceGuests"}
+                  onClick={() => handleItemClick("experienceGuests")}
+                  ref={(el) => (searchItemsRef.current.experienceGuests = el)}
+                  isLastItem={true}
+                >
+                  {activeItem === "experienceGuests" && <GuestsPopup />}
+                </SearchItem>
               </>
             )}
             <button className="header__searchButton">
