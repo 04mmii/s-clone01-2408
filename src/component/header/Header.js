@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { FaUserCircle, FaSearch, FaGlobe } from "react-icons/fa";
 import SearchItem from "./searchBar/SearchItem";
 import LocationPopup from "./searchBar/LocationPopup";
-import GuestsPopup from "./searchBar/GuestsPopup";
 import DateRangePopup from "./searchBar/DateRangePopup";
+import GuestsPopup from "./searchBar/GuestsPopup";
 
 const Header = () => {
   const [selectedTab, setSelectedTab] = useState("stays");
