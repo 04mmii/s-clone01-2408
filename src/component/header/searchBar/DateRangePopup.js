@@ -9,11 +9,9 @@ const Calendar = ({ month, year }) => {
     const daysInMonth = new Date(year, month, 0).getDate();
 
     const days = [];
-    // 첫 주 빈 칸 채우기
     for (let i = 0; i < firstDay; i++) {
       days.push("");
     }
-    // 날짜 채우기
     for (let i = 1; i <= daysInMonth; i++) {
       days.push(i);
     }
