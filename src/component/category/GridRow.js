@@ -3,7 +3,6 @@ import "./GridRow.css";
 
 const GridRow = ({ onCategorySelect, selectedCategory }) => {
   const categories = [
-    // { name: "전체 보기", image: "/image/all.jpeg" },
     { name: "인기 급상승", image: "/image/인기 급상승.jpeg" },
     { name: "국립공원", image: "/image/국립공원.jpeg" },
     { name: "료칸", image: "/image/료칸.jpeg" },
@@ -39,14 +38,12 @@ const GridRow = ({ onCategorySelect, selectedCategory }) => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
 
-  // 스크롤 위치에 따른 화살표 표시 업데이트
   const handleScroll = () => {
     const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
     setShowLeftArrow(scrollLeft > 0);
     setShowRightArrow(scrollLeft < scrollWidth - clientWidth);
   };
 
-  // 스크롤 방향 처리
   const scroll = (direction) => {
     const { current } = scrollRef;
     if (direction === "left")
@@ -54,15 +51,8 @@ const GridRow = ({ onCategorySelect, selectedCategory }) => {
     else current.scrollBy({ left: 200, behavior: "smooth" });
   };
 
-  // // 카테고리 선택 처리
-  // const categorySelect = (category) => {
-  //   setSelectedCategory(category);
-  //   categorySelect(category);
-  // };
-
   useEffect(() => {
     handleScroll();
-    // 스크롤 이벤트 리스너 추가
     const ref = scrollRef.current;
     ref.addEventListener("scroll", handleScroll);
     return () => {
@@ -88,7 +78,7 @@ const GridRow = ({ onCategorySelect, selectedCategory }) => {
             onClick={() => {
               if (selectedCategory !== category.name) {
                 onCategorySelect(category.name);
-              } // 상위 컴포넌트로 카테고리 전달
+              }
             }}
           >
             <img src={category.image} alt={category.name} />

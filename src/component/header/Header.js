@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Header.css";
-import { useNavigate } from "react-router-dom";
 import { FaUserCircle, FaSearch, FaGlobe } from "react-icons/fa";
 import SearchItem from "./searchBar/SearchItem";
 import LocationPopup from "./searchBar/LocationPopup";
@@ -11,7 +10,6 @@ const Header = () => {
   const [selectedTab, setSelectedTab] = useState("stays");
   const [activeItem, setActiveItem] = useState(null);
   const searchItemsRef = useRef({});
-  const navigate = useNavigate();
 
   const handleItemClick = (item) => {
     setActiveItem(activeItem === item ? null : item);
@@ -34,7 +32,7 @@ const Header = () => {
   }, [activeItem]);
 
   const handleLogoClick = () => {
-    navigate("/");
+    window.location.href = "/";
   };
 
   const [startDate, setStartDate] = useState(null);

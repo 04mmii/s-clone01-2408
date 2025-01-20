@@ -18,7 +18,6 @@ const MainPage = () => {
       ? accommodations
       : accommodations.filter((a) => {
           if (!Array.isArray(a.category)) {
-            console.error("Invalid category format:", a.category);
             return false;
           }
           return a.category.some(
@@ -33,32 +32,34 @@ const MainPage = () => {
   };
 
   return (
-    <>
+    <div className="main-page">
       <Header />
-      <div className="grid-row-container">
-        <GridRow
-          onCategorySelect={setSelectedCategory}
-          selectedCategory={selectedCategory}
-        />
-      </div>
-      <div className="card-list">
-        {filteredAccommodations.slice(0, visibleCards).map((a) => (
-          <List
-            key={a.id}
-            data={a}
-            onClick={() => navigate(`/detail/${a.id}`)}
+      <main>
+        <div className="grid-row-container">
+          <GridRow
+            onCategorySelect={setSelectedCategory}
+            selectedCategory={selectedCategory}
           />
-        ))}
-      </div>
-      {visibleCards < filteredAccommodations.length && (
-        <div className="load-more-container">
-          <button className="load-more-button" onClick={handleLoadMore}>
-            더보기
-          </button>
         </div>
-      )}
+        <div className="card-list">
+          {filteredAccommodations.slice(0, visibleCards).map((a) => (
+            <List
+              key={a.id}
+              data={a}
+              onClick={() => navigate(`/detail/${a.id}`)}
+            />
+          ))}
+        </div>
+        {visibleCards < filteredAccommodations.length && (
+          <div className="load-more-container">
+            <button className="load-more-button" onClick={handleLoadMore}>
+              더보기
+            </button>
+          </div>
+        )}
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
