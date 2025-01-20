@@ -25,6 +25,7 @@
 
 .header__logo {
   justify-self: start;
+  cursor: pointer;
 }
 
 .header__logo img {
@@ -111,7 +112,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.header__searchItem {
+.search-item {
   display: flex;
   flex-direction: column;
   padding: 10px 24px;
@@ -120,33 +121,32 @@
   position: relative;
 }
 
-.header__searchItem:hover {
+.search-item:hover {
   background-color: #f7f7f7;
   border-radius: 50px;
 }
 
-.header__searchItem.active {
+.search-item.active {
   background-color: white;
   border-radius: 50px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
 }
 
-.header__search:has(.header__searchItem.active) {
+.header__search:has(.search-item.active) {
   background-color: #ebebeb;
 }
 
-.header__search:has(.header__searchItem.active)
-  .header__searchItem:not(.active) {
+.header__search:has(.search-item.active) .search-item:not(.active) {
   background-color: transparent;
 }
 
-.header__searchItem span {
+.search-item__label {
   font-size: 12px;
   color: #888;
   margin-bottom: 4px;
 }
 
-.header__searchItem input {
+.search-item__input {
   border: none;
   outline: none;
   font-size: 14px;
@@ -292,8 +292,51 @@
     border-radius: 0;
   }
 
-  .header__searchItem {
-    border-radius: 0;
+  .search-item {
+    display: flex;
+    flex-direction: column;
+    padding: 14px 24px;
+    flex: 1;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .search-item:hover {
+    background-color: #f7f7f7;
+    border-radius: 50px;
+  }
+
+  .search-item.active {
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  }
+
+  .search-item__label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 4px;
+  }
+
+  .search-item__input {
+    font-size: 14px;
+    color: #717171;
+  }
+
+  /* 활성화된 search-item이 있을 때의 스타일 */
+  .header__search:has(.search-item.active) {
+    background-color: #ebebeb;
+  }
+
+  .header__search:has(.search-item.active) .search-item:not(.active) {
+    background-color: transparent;
+  }
+
+  /* 마지막 아이템 스타일링 */
+  .search-item.last-item {
+    padding-right: 72px; /* 검색 버튼을 위한 여백 */
   }
 
   .header__searchButton {

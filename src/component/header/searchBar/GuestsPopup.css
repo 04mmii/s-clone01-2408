@@ -1,0 +1,59 @@
+.guestsPopup {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 12px;
+  background: white;
+  border-radius: 32px;
+  padding: 24px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+  min-width: 320px;
+  z-index: 1000;
+}
+
+.guest-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.guest-info h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.guest-info p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #717171;
+}
+
+.guest-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.guest-controls button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #b0b0b0;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guest-type:last-child {
+  border-bottom: none;
+}
+
+.guest-controls span {
+  min-width: 20px;
+  text-align: center;
+}

@@ -37,6 +37,24 @@ const Header = () => {
     navigate("/");
   };
 
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+
+  const formatDate = (date) => {
+    if (!date) return "";
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    return `${month}월 ${day}일`;
+  };
+
+  const handleDateSelect = (date, type) => {
+    if (type === "checkIn") {
+      setStartDate(date);
+    } else {
+      setEndDate(date);
+    }
+  };
+
   return (
     <header className="header">
       <div className="header__center">
@@ -99,26 +117,40 @@ const Header = () => {
                 <SearchItem
                   label="체크인"
                   placeholder="날짜 추가"
-                  isActive={
-                    activeItem === "checkIn" || activeItem === "checkOut"
-                  }
+                  value={startDate ? formatDate(startDate) : "날짜 추가"}
+                  isActive={activeItem === "checkIn"}
                   onClick={() => handleItemClick("checkIn")}
                   ref={(el) => (searchItemsRef.current.checkIn = el)}
                 >
-                  {(activeItem === "checkIn" || activeItem === "checkOut") && (
-                    <DateRangePopup />
+                  {activeItem === "checkIn" && (
+                    <DateRangePopup
+                      onDateSelect={(date) => handleDateSelect(date, "checkIn")}
+                      selectedStartDate={startDate}
+                      selectedEndDate={endDate}
+                      type="checkIn"
+                    />
                   )}
                 </SearchItem>
 
                 <SearchItem
                   label="체크아웃"
                   placeholder="날짜 추가"
-                  isActive={
-                    activeItem === "checkIn" || activeItem === "checkOut"
-                  }
+                  value={endDate ? formatDate(endDate) : "날짜 추가"}
+                  isActive={activeItem === "checkOut"}
                   onClick={() => handleItemClick("checkOut")}
                   ref={(el) => (searchItemsRef.current.checkOut = el)}
-                />
+                >
+                  {activeItem === "checkOut" && (
+                    <DateRangePopup
+                      onDateSelect={(date) =>
+                        handleDateSelect(date, "checkOut")
+                      }
+                      selectedStartDate={startDate}
+                      selectedEndDate={endDate}
+                      type="checkOut"
+                    />
+                  )}
+                </SearchItem>
 
                 <SearchItem
                   label="여행자"
@@ -144,11 +176,20 @@ const Header = () => {
                 <SearchItem
                   label="날짜"
                   placeholder="날짜 추가"
-                  type="date"
-                  isActive={activeItem === "date"}
-                  onClick={() => handleItemClick("date")}
-                  ref={(el) => (searchItemsRef.current.date = el)}
-                />
+                  value={startDate ? formatDate(startDate) : "날짜 추가"}
+                  isActive={activeItem === "checkIn"}
+                  onClick={() => handleItemClick("checkIn")}
+                  ref={(el) => (searchItemsRef.current.checkIn = el)}
+                >
+                  {activeItem === "checkIn" && (
+                    <DateRangePopup
+                      onDateSelect={(date) => handleDateSelect(date, "checkIn")}
+                      selectedStartDate={startDate}
+                      selectedEndDate={endDate}
+                      type="checkIn"
+                    />
+                  )}
+                </SearchItem>
 
                 <SearchItem
                   label="게스트"
