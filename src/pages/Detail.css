@@ -14,15 +14,18 @@
 }
 
 .back-button {
-  background-color: #ffffff00;
+  display: flex;
+  background: white;
   border: none;
-  font-size: 16px;
-  padding-left: 200px;
-  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 1001;
+  font-weight: 500;
 }
 
 .accommodation-info {
-  padding-bottom: 20px; /* Adjust this value as needed */
+  padding-bottom: 20px;
 }
 
 .detail-info {

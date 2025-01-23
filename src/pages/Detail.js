@@ -10,6 +10,8 @@ const Detail = ({ accommodations }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [accommodation, setAccommodation] = useState(null);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
   useEffect(() => {
     const foundAccommodation = accommodations.find(
@@ -38,7 +40,12 @@ const Detail = ({ accommodations }) => {
           rating={rating}
         />
         <div className="booking-section">
-          <DateRangeSelector />
+          <DateRangeSelector
+            startDate={startDate}
+            endDate={endDate}
+            setStartDate={setStartDate}
+            setEndDate={setEndDate}
+          />
         </div>
       </div>
       <div>

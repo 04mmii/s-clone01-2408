@@ -6,7 +6,7 @@ import LocationPopup from "./searchBar/LocationPopup";
 import DateRangePopup from "./searchBar/DateRangePopup";
 import GuestsPopup from "./searchBar/GuestsPopup";
 
-const Header = () => {
+const Header = ({ startDate, endDate, setStartDate, setEndDate }) => {
   const [selectedTab, setSelectedTab] = useState("stays");
   const [activeItem, setActiveItem] = useState(null);
   const searchItemsRef = useRef({});
@@ -35,9 +35,6 @@ const Header = () => {
     window.location.href = "/";
   };
 
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-
   const formatDate = (date) => {
     if (!date) return "";
     const month = date.getMonth() + 1;
@@ -51,6 +48,7 @@ const Header = () => {
     } else {
       setEndDate(date);
     }
+    setActiveItem(null);
   };
 
   return (
@@ -122,7 +120,7 @@ const Header = () => {
                 >
                   {activeItem === "checkIn" && (
                     <DateRangePopup
-                      onDateSelect={(date) => handleDateSelect(date, "checkIn")}
+                      onDateSelect={handleDateSelect}
                       selectedStartDate={startDate}
                       selectedEndDate={endDate}
                       type="checkIn"
@@ -140,16 +138,13 @@ const Header = () => {
                 >
                   {activeItem === "checkOut" && (
                     <DateRangePopup
-                      onDateSelect={(date) =>
-                        handleDateSelect(date, "checkOut")
-                      }
+                      onDateSelect={handleDateSelect}
                       selectedStartDate={startDate}
                       selectedEndDate={endDate}
                       type="checkOut"
                     />
                   )}
                 </SearchItem>
-
                 <SearchItem
                   label="여행자"
                   placeholder="게스트 추가"

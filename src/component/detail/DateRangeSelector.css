@@ -1,106 +1,5 @@
-/* src/components/detail/DateRangeSelector.css */
-.date-range-container {
-  padding: 24px;
-  border: 1px solid #dddddd;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-}
-
-.price-header {
-  display: flex;
-  align-items: baseline;
-  margin-bottom: 24px;
-}
-
-.price {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.per-night {
-  color: #717171;
-  margin-left: 4px;
-}
-
-.date-selector {
-  overflow: hidden;
-}
-
-.date-inputs {
-  border-radius: 8px;
-  border: 1px solid #b0b0b0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.date-input {
-  padding: 10px;
-  border-bottom: 1px solid #b0b0b0;
-}
-
-.date-input:first-child {
-  border-right: 1px solid #b0b0b0;
-}
-
-.date-input label {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.date-input input {
-  width: 100%;
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.reserve-button {
-  width: 100%;
-  padding: 14px;
-  background-color: #ff385c;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  margin: 16px 0;
-  cursor: pointer;
-}
-
-.price-details {
-  margin-top: 24px;
-}
-
-.price-item {
-  display: flex;
-  justify-content: space-between;
-  margin: 12px 0;
-}
-
-.total-price {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid #dddddd;
-  font-weight: 600;
-}
-
-.special-offer {
-  margin-top: 24px;
-  padding: 16px;
-  background-color: #f7f7f7;
-  border-radius: 8px;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.diamond-icon {
-  font-size: 24px;
-}
-
+/* 공통 스타일 */
+.date-range-container,
 .price-container {
   padding: 24px;
   border: 1px solid #dddddd;
@@ -108,76 +7,155 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-.price-header {
+/* 가격 헤더 스타일 */
+.price-header,
+.price-wrapper {
   display: flex;
-  align-items: baseline;
-  margin-bottom: 24px;
+  align-items: center;
+  gap: 10px;
 }
 
+.price-header {
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+/* 가격 스타일 */
+.original-price {
+  font-size: 15px;
+  text-decoration: line-through;
+  color: #717171;
+}
+
+.discounted-price,
 .price {
   font-size: 22px;
   font-weight: 600;
-  margin: 0;
 }
 
 .per-night {
-  font-size: 16px;
   color: #717171;
+  font-size: 16px;
   margin-left: 4px;
 }
 
-.booking-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.date-inputs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* 예약 폼 스타일 */
+.booking-pick {
   border: 1px solid #b0b0b0;
   border-radius: 8px;
-  overflow: hidden;
 }
 
-.date-input {
+/* 날짜 선택기 스타일 */
+.date-selector {
+  overflow: visible;
+}
+
+.date-inputs-d {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid #b0b0b0;
+}
+
+.date-input-d {
   padding: 10px;
+  position: relative;
 }
 
-.date-input:first-child {
+.date-input-d:first-child {
   border-right: 1px solid #b0b0b0;
 }
 
-.date-input label {
+/* 라벨 공통 스타일 */
+.date-input-d label,
+.guest-selector label {
   display: block;
   font-size: 12px;
   font-weight: 600;
+  text-align: left;
+  margin-left: 10px;
   margin-bottom: 4px;
 }
 
-.date-input input {
+/* 입력 필드 공통 스타일 */
+.date-input-d input,
+.react-datepicker__input-container input {
   width: 100%;
   border: none;
   font-size: 14px;
-  outline: none;
   cursor: pointer;
+  outline: none;
 }
 
-.guest-selector {
-  position: relative;
+.react-datepicker__input-container input {
   padding: 10px;
-  border-bottom: 1px solid #b0b0b0;
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 4px;
+  border-radius: 8px;
+}
+
+/* DatePicker 스타일 */
+.react-datepicker {
+  box-shadow: 3px 2px 11px rgb(0 0 0 / 30%);
+  border: none;
+  border-radius: 8px;
+}
+
+.react-datepicker__header {
+  background-color: white;
+  border-bottom: none;
+  padding: 20px;
+}
+
+.react-datepicker__month-container {
+  padding: 0 10px;
+}
+
+.react-datepicker__day {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: 2px;
+  border-radius: 50%;
+}
+
+/* DatePicker 날짜 선택 스타일 */
+.react-datepicker__day.react-datepicker__day--in-selecting-range,
+.react-datepicker__day.react-datepicker__day--in-range {
+  background-color: #f7f7f7 !important;
+  color: black !important;
+}
+
+.react-datepicker__day.react-datepicker__day--selecting-range-start,
+.react-datepicker__day.react-datepicker__day--range-start,
+.react-datepicker__day.react-datepicker__day--range-end,
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #222222 !important;
+  color: white !important;
+  border-radius: 50% !important;
+}
+
+/* 호버 스타일 */
+.react-datepicker__day:hover {
+  background-color: #f7f7f7 !important;
+  border-radius: 50% !important;
+  color: #222222 !important;
+}
+
+.react-datepicker__day.react-datepicker__day--in-range:hover {
+  background-color: #ebebeb !important;
+}
+
+/* 게스트 선택기 스타일 */
+.guest-selector {
+  padding: 10px;
+  border-top: 1px solid #b0b0b0;
+  position: relative;
+  text-align: left;
 }
 
 .guest-input {
-  padding: 12px;
-  border: 1px solid #b0b0b0;
-  border-radius: 8px;
+  font-size: 14px;
   cursor: pointer;
+  padding-left: 10px;
 }
 
 .guest-dropdown {
@@ -189,10 +167,11 @@
   border-radius: 12px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
   padding: 16px;
-  margin-top: 12px;
+  margin-top: 0;
   z-index: 1000;
 }
 
+/* 게스트 타입 스타일 */
 .guest-type {
   display: flex;
   justify-content: space-between;
@@ -212,6 +191,7 @@
   margin-top: 4px;
 }
 
+/* 카운터 스타일 */
 .counter {
   display: flex;
   align-items: center;
@@ -235,6 +215,70 @@
   cursor: not-allowed;
 }
 
+/* 버튼 공통 스타일 */
+.close-btn,
+.reserve-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.close-btn {
+  margin-top: 16px;
+  background: #222;
+  color: white;
+  font-size: 14px;
+}
+
+.reserve-button {
+  padding: 14px;
+  background-color: #ff385c;
+  color: white;
+  margin: 16px 0;
+}
+
+/* 가격 상세 스타일 */
+.price-details {
+  margin-top: 24px;
+}
+
+.price-item,
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+
+.total-price {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #dddddd;
+  font-weight: 600;
+}
+
+/* 특별 제안 스타일 */
+.special-offer {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+}
+.special-offer p {
+  font-size: 13px;
+}
+
+.diamond-icon {
+  font-size: 24px;
+  padding: 15px;
+}
+
 .max-guests-notice {
   font-size: 12px;
   color: #717171;
@@ -243,14 +287,25 @@
   line-height: 1.4;
 }
 
-.close-btn {
-  width: 100%;
-  padding: 12px;
-  margin-top: 16px;
-  background: #222;
-  color: white;
+.custom-header-m {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+}
+
+.custom-header-m button {
   border: none;
-  border-radius: 8px;
+  background: none;
   cursor: pointer;
-  font-size: 14px;
+  padding: 4px 8px;
+}
+
+.react-datepicker__month-container {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.react-datepicker {
+  display: flex;
 }

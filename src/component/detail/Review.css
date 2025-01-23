@@ -1,8 +1,8 @@
-/* Review.css */
 .review-container {
   max-width: 1120px;
   margin: 0 auto;
   padding: 24px;
+  text-align: left;
 }
 
 .review-header {

@@ -37,60 +37,40 @@
 }
 
 .dateRange-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  padding: 0 20px;
-}
-
-.calendar {
-  width: 100%;
-}
-
-.weekdays {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  margin-bottom: 16px;
-  font-size: 12px;
-  color: #717171;
-}
-
-.days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
-  text-align: center;
-}
-
-.day {
-  aspect-ratio: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 14px;
-  border-radius: 50%;
-  cursor: pointer;
-  color: #222222;
-  height: 40px;
+  gap: 40px;
 }
 
-.day.empty {
-  cursor: default;
+.rdp-root {
+  --rdp-accent-color: #ff385c;
+  --rdp-background-color: #f7f7f7;
+  --rdp-accent-color-dark: #ff385c;
+  --rdp-background-color-dark: #333;
+  --rdp-outline: 2px solid #ff385c;
+  --rdp-outline-selected: 3px solid #ff385c;
 }
 
-.day.selectable:hover {
-  background-color: #f7f7f7;
-}
-
-.day.selected {
-  background-color: #222222;
+.rdp-day_selected,
+.rdp-day_selected:focus-visible,
+.rdp-day_selected:hover {
+  background-color: var(--rdp-accent-color);
   color: white;
 }
 
-.day.disabled {
-  color: #dddddd;
-  cursor: not-allowed;
+.rdp-day:hover:not(.rdp-day_selected) {
+  background-color: #f7f7f7;
+  color: var(--rdp-accent-color);
+}
+
+.rdp-day_today {
+  font-weight: bold;
+  color: var(--rdp-accent-color);
+}
+
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  background-color: #f7f7f7;
+  color: var(--rdp-accent-color);
 }
 
 .flexible-dates {
@@ -113,7 +93,7 @@
 }
 
 .flexible-date-btn.active {
-  background: #222222;
+  background: #ff385c;
   color: white;
-  border-color: #222222;
+  border-color: #ff385c;
 }
