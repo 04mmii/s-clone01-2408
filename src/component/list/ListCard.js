@@ -20,18 +20,15 @@ const ListCard = ({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log(id); // 클릭 시 콘솔에 ID 출력
     navigate(`/detail/${id}`);
   };
 
-  //왼쪽으로 이동 (최소0까지 제한)
   const handlePrev = () => {
     if (cardImage > 0) {
       setCardImage((prevIndex) => prevIndex - 1);
     }
   };
 
-  //오른쪽으로 이동 (최대 images.length - 1까지 제한)
   const handleNext = () => {
     if (cardImage < totalImages - 1) {
       setCardImage((prevIndex) => prevIndex + 1);
@@ -39,12 +36,12 @@ const ListCard = ({
   };
 
   const toggleLike = () => {
-    setIsLiked(!isLiked); // 클릭 시 좋아요 상태 변경
+    setIsLiked(!isLiked);
   };
 
   const getDisplayedDots = () => {
     if (totalImages <= MAX_DOTS) {
-      return Array.from({ length: totalImages }, (_, i) => i); // 전체 점 표시
+      return Array.from({ length: totalImages }, (_, i) => i);
     } else {
       const start = Math.max(0, cardImage - Math.floor(MAX_DOTS / 2));
       const end = Math.min(totalImages, start + MAX_DOTS);
@@ -56,7 +53,6 @@ const ListCard = ({
     <div className="card">
       <div
         className="image-container"
-        // onClick={handleNextImage}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
