@@ -1,81 +1,53 @@
-import React, { useState } from "react";
+import React from "react";
 import "./GuestsPopup.css";
 
-const GuestsPopup = () => {
-  const [adults, setAdults] = useState(1);
-  const [children, setChildren] = useState(0);
-  const [infants, setInfants] = useState(0);
-  const [pets, setPets] = useState(0);
-
-  const handleIncrement = (setter, value) => {
-    setter(value + 1);
-  };
-
-  const handleDecrement = (setter, value) => {
-    if (value > 0) {
-      setter(value - 1);
-    }
-  };
-
+const GuestsPopup = ({ guestCounts, onGuestChange }) => {
   return (
     <div className="guestsPopup" onClick={(e) => e.stopPropagation()}>
-      <div className="guest-type">
-        <div className="guest-info">
-          <h3>성인</h3>
-          <p>13세 이상</p>
-        </div>
-        <div className="guest-controls">
-          <button onClick={() => handleDecrement(setAdults, adults)}>-</button>
-          <span>{adults}</span>
-          <button onClick={() => handleIncrement(setAdults, adults)}>+</button>
-        </div>
-      </div>
-
-      <div className="guest-type">
-        <div className="guest-info">
-          <h3>어린이</h3>
-          <p>2-12세</p>
-        </div>
-        <div className="guest-controls">
-          <button onClick={() => handleDecrement(setChildren, children)}>
-            -
-          </button>
-          <span>{children}</span>
-          <button onClick={() => handleIncrement(setChildren, children)}>
-            +
-          </button>
-        </div>
-      </div>
-
-      <div className="guest-type">
-        <div className="guest-info">
-          <h3>유아</h3>
-          <p>2세 미만</p>
-        </div>
-        <div className="guest-controls">
-          <button onClick={() => handleDecrement(setInfants, infants)}>
-            -
-          </button>
-          <span>{infants}</span>
-          <button onClick={() => handleIncrement(setInfants, infants)}>
-            +
-          </button>
-        </div>
-      </div>
-
-      <div className="guest-type">
-        <div className="guest-info">
-          <h3>반려동물</h3>
-          <p>보조동물을 동반하시나요?</p>
-        </div>
-        <div className="guest-controls">
-          <button onClick={() => handleDecrement(setPets, pets)}>-</button>
-          <span>{pets}</span>
-          <button onClick={() => handleIncrement(setPets, pets)}>+</button>
-        </div>
-      </div>
+      <GuestTypeRow
+        type="adults"
+        label="성인"
+        ageInfo="13세 이상"
+        count={guestCounts.adults}
+        onChange={onGuestChange}
+      />
+      <GuestTypeRow
+        type="children"
+        label="어린이"
+        ageInfo="2-12세"
+        count={guestCounts.children}
+        onChange={onGuestChange}
+      />
+      <GuestTypeRow
+        type="infants"
+        label="유아"
+        ageInfo="2세 미만"
+        count={guestCounts.infants}
+        onChange={onGuestChange}
+      />
+      <GuestTypeRow
+        type="pets"
+        label="반려동물"
+        ageInfo="보조동물을 동반하시나요?"
+        count={guestCounts.pets}
+        onChange={onGuestChange}
+      />
     </div>
   );
 };
+
+const GuestTypeRow = ({ type, label, ageInfo, count, onChange }) => (
+  <div className="guest-type">
+    <div className="guest-info">
+      <h3>{label}</h3>
+      <p>{ageInfo}</p>
+    </div>
+    <div className="guest-controls">
+      <button onClick={() => onChange(type, "decrement")}>-</button>
+      <span>{count}</span>
+      <button onClick={() => onChange(type, "increment")}>+</button>
+    </div>
+  </div>
+);
 
 export default GuestsPopup;

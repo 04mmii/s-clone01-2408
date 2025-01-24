@@ -51,6 +51,27 @@ const Header = ({ startDate, endDate, setStartDate, setEndDate }) => {
     setActiveItem(null);
   };
 
+  const [guestCounts, setGuestCounts] = useState({
+    adults: 1,
+    children: 0,
+    infants: 0,
+    pets: 0,
+  });
+
+  const handleGuestChange = (type, operation) => {
+    setGuestCounts((prev) => ({
+      ...prev,
+      [type]:
+        operation === "increment"
+          ? prev[type] + 1
+          : Math.max(type === "adults" ? 1 : 0, prev[type] - 1),
+    }));
+  };
+
+  const getTotalGuestCount = () => {
+    return guestCounts.adults + guestCounts.children;
+  };
+
   return (
     <header className="header">
       <div className="header__center">
@@ -148,12 +169,26 @@ const Header = ({ startDate, endDate, setStartDate, setEndDate }) => {
                 <SearchItem
                   label="여행자"
                   placeholder="게스트 추가"
+                  value={`게스트 ${getTotalGuestCount()}명${
+                    guestCounts.infants > 0
+                      ? `, 유아 ${guestCounts.infants}명`
+                      : ""
+                  }${
+                    guestCounts.pets > 0
+                      ? `, 반려동물 ${guestCounts.pets}마리`
+                      : ""
+                  }`}
                   isActive={activeItem === "guests"}
                   onClick={() => handleItemClick("guests")}
                   ref={(el) => (searchItemsRef.current.guests = el)}
                   isLastItem={true}
                 >
-                  {activeItem === "guests" && <GuestsPopup />}
+                  {activeItem === "guests" && (
+                    <GuestsPopup
+                      guestCounts={guestCounts}
+                      onGuestChange={handleGuestChange}
+                    />
+                  )}
                 </SearchItem>
               </>
             ) : (
@@ -185,14 +220,28 @@ const Header = ({ startDate, endDate, setStartDate, setEndDate }) => {
                 </SearchItem>
 
                 <SearchItem
-                  label="게스트"
+                  label="여행자"
                   placeholder="게스트 추가"
-                  isActive={activeItem === "experienceGuests"}
-                  onClick={() => handleItemClick("experienceGuests")}
-                  ref={(el) => (searchItemsRef.current.experienceGuests = el)}
+                  value={`게스트 ${getTotalGuestCount()}명${
+                    guestCounts.infants > 0
+                      ? `, 유아 ${guestCounts.infants}명`
+                      : ""
+                  }${
+                    guestCounts.pets > 0
+                      ? `, 반려동물 ${guestCounts.pets}마리`
+                      : ""
+                  }`}
+                  isActive={activeItem === "guests"}
+                  onClick={() => handleItemClick("guests")}
+                  ref={(el) => (searchItemsRef.current.guests = el)}
                   isLastItem={true}
                 >
-                  {activeItem === "experienceGuests" && <GuestsPopup />}
+                  {activeItem === "guests" && (
+                    <GuestsPopup
+                      guestCounts={guestCounts}
+                      onGuestChange={handleGuestChange}
+                    />
+                  )}
                 </SearchItem>
               </>
             )}

@@ -19,20 +19,13 @@ const DateRangeSelector = ({
 
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const handleDecrease = (type) => {
+  const handleGuestChange = (type, operation) => {
     setGuestCounts((prev) => ({
       ...prev,
       [type]:
-        type === "adults"
-          ? Math.max(1, prev[type] - 1)
-          : Math.max(0, prev[type] - 1),
-    }));
-  };
-
-  const handleIncrease = (type) => {
-    setGuestCounts((prev) => ({
-      ...prev,
-      [type]: prev[type] + 1,
+        operation === "increment"
+          ? prev[type] + 1
+          : Math.max(type === "adults" ? 1 : 0, prev[type] - 1),
     }));
   };
 
@@ -139,33 +132,29 @@ const DateRangeSelector = ({
                   type="adults"
                   label="성인"
                   ageInfo="13세 이상"
-                  guestCounts={guestCounts}
-                  handleDecrease={handleDecrease}
-                  handleIncrease={handleIncrease}
+                  count={guestCounts.adults}
+                  onChange={handleGuestChange}
                 />
                 <GuestTypeRow
                   type="children"
                   label="어린이"
                   ageInfo="2-12세"
-                  guestCounts={guestCounts}
-                  handleDecrease={handleDecrease}
-                  handleIncrease={handleIncrease}
+                  count={guestCounts.children}
+                  onChange={handleGuestChange}
                 />
                 <GuestTypeRow
                   type="infants"
                   label="유아"
                   ageInfo="2세 미만"
-                  guestCounts={guestCounts}
-                  handleDecrease={handleDecrease}
-                  handleIncrease={handleIncrease}
+                  count={guestCounts.infants}
+                  onChange={handleGuestChange}
                 />
                 <GuestTypeRow
                   type="pets"
                   label="반려동물"
                   ageInfo="보조동물을 동반하시나요?"
-                  guestCounts={guestCounts}
-                  handleDecrease={handleDecrease}
-                  handleIncrease={handleIncrease}
+                  count={guestCounts.pets}
+                  onChange={handleGuestChange}
                 />
                 <p className="max-guests-notice">
                   이 숙소의 최대 숙박 인원은 8명(유아 제외)입니다.
@@ -215,14 +204,7 @@ const DateRangeSelector = ({
   );
 };
 
-const GuestTypeRow = ({
-  type,
-  label,
-  ageInfo,
-  guestCounts,
-  handleDecrease,
-  handleIncrease,
-}) => (
+const GuestTypeRow = ({ type, label, ageInfo, count, onChange }) => (
   <div className="guest-type">
     <div className="guest-info">
       <span>{label}</span>
@@ -232,17 +214,17 @@ const GuestTypeRow = ({
       <button
         onClick={(e) => {
           e.stopPropagation();
-          handleDecrease(type);
+          onChange(type, "decrement");
         }}
         className="counter-btn"
       >
         -
       </button>
-      <span>{guestCounts[type]}</span>
+      <span>{count}</span>
       <button
         onClick={(e) => {
           e.stopPropagation();
-          handleIncrease(type);
+          onChange(type, "increment");
         }}
         className="counter-btn"
       >
