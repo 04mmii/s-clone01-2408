@@ -53,8 +53,8 @@
 ### **React Hooks **
 
 1. useState:
-   컴포넌트의 로컬 상태를 관리합니다.
-   예: const [selectedCategory, setSelectedCategory] = useState('전체 보기');
+   컴포넌트의 로컬 상태를 관리합니다.<br/>
+   예: const [selectedCategory, setSelectedCategory] = useState('전체 보기');<br/>
    카테고리 선택, 게스트 수, 날짜 등의 상태를 관리하는 데 사용됩니다.
 
 2. useEffect:
@@ -71,17 +71,17 @@
 
 컴포넌트 마운트 시 이벤트 리스너 추가, 언마운트 시 제거 등에 사용됩니다.
 
-3. useRef:
+3. useRef:<br/>
    DOM 요소에 직접 접근하거나 변경 가능한 값을 저장합니다.
    예: const scrollRef = useRef(null);
    스크롤 위치 계산 등 DOM 조작에 사용됩니다.
 
-4. useParams:
+4. useParams:<br/>
    React Router의 URL 파라미터를 추출합니다.
    예: const { id } = useParams();
    숙소 상세 페이지의 ID를 가져오는 데 사용됩니다.
 
-5. useNavigate:
+5. useNavigate:<br/>
    프로그래밍 방식으로 라우팅을 처리합니다.
    예: const navigate = useNavigate();
    페이지 간 이동을 구현하는 데 사용됩니다.
